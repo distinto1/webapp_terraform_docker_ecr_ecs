@@ -53,3 +53,66 @@ The architecture includes:
 * Amazon DynamoDB: For locking Terraform state.
 * IAM Roles: To ensure secure access to services.
 * Auto Scaling Group: To ensure the app scales based on demand.
+
+
+## Step-by-Step Project Setup Instructions
+
+1. Install and Setup Terraform:
+
+    Install Terraform on your local machine and verify the installation.
+
+1. Version Control:
+
+    Create a GitHub repository and set up Git on your computer.
+    Generate SSH key pairs for secure access to GitHub.
+
+1. Development Environment:
+
+    Install Visual Studio Code and add Terraform and Docker extensions to improve efficiency.
+
+1. AWS Setup:
+
+    * Install and configure the AWS CLI.
+    * Create an IAM user and generate access keys.
+    * Run aws configure to set up your credentials locally.
+1. S3 and DynamoDB for Terraform State:
+
+    * Create an S3 bucket for storing the Terraform state files.
+    * Create a DynamoDB table to lock Terraform state and prevent concurrent operations.
+
+1. Terraform Configuration:
+
+    * Clone the GitHub repository and define environment variables for the project.
+    * Initialize Terraform using terraform init after configuring the provider.
+1. VPC and Networking:
+
+    * Create a 3-tier VPC with public and private subnets across two availability zones.
+    * Set up NAT Gateways and Route Tables to manage traffic between public and private subnets.
+
+1. Security Groups:
+
+    * Create security groups for the Application Load Balancer, Bastion host, app servers, and databases.
+
+1. Database Layer:
+
+    * Deploy an RDS instance from a snapshot to serve as the application's database.
+
+1. Load Balancer and Auto Scaling:
+
+    * Set up an Application Load Balancer to distribute traffic.
+    * Create an Auto Scaling Group connected to ECS to manage container scaling.
+
+1. ECS and ECR:
+
+    * Push your Docker images to Amazon ECR.
+    * Define an ECS task and service using Terraform, and link them to the Auto Scaling Group.
+
+1. DNS and SSL:
+
+    * Configure Route 53 for DNS routing to your application.
+    * Use AWS Certificate Manager (ACM) to manage SSL certificates for secure connections.
+
+1. Deployment:
+
+    * Run terraform apply to deploy the infrastructure and application.
+    * Access your application through the domain printed by Terraform.
