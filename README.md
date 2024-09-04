@@ -36,6 +36,8 @@ You will also need:
 
 ## Architecture Diagram
 
+![](./images/Architecture%20for%20hosting%20a%20Dynamic%20Web%20app%20using%20Terraform%20Docker%20Amazon%20ECR%20and%20ECS.jpg)
+
 The architecture includes:
 
 * Amazon Route 53: DNS service to direct user traffic.
