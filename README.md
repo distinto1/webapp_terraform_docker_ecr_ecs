@@ -1,4 +1,4 @@
-# dynamic_web_app_with_terraform_docker_amazon_ecr_and_ecs
+# Deploy Dynamic Web App on AWS with Terraform Docker Amazon ECR & ECS
 
 ## Project Overview
 
