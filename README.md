@@ -1,11 +1,11 @@
 # dynamic_web_app_with_terraform_docker_amazon_ecr_and_ecs
 
 ## Project Overview
+
 This project demonstrates how to deploy a dynamic web application on AWS using Terraform for infrastructure as code, Docker for containerization, and Amazon ECR and ECS for container orchestration. The architecture is designed to be scalable, highly available, and secure, leveraging various AWS services to achieve these goals.
 
-
 ## Use Case
-Use Case
+
 This project is ideal for deploying a web application that requires:
 
 * Scalability: With ECS and Auto Scaling, the application can handle varying loads.
@@ -18,6 +18,7 @@ This project is ideal for deploying a web application that requires:
 
 
 ## Prerequisites
+
 Before you start, make sure you have the following tools installed:
 
 * Terraform: Installed and configured.
@@ -34,6 +35,7 @@ You will also need:
 
 
 ## Architecture Diagram
+
 The architecture includes:
 
 * Amazon Route 53: DNS service to direct user traffic.
@@ -49,4 +51,3 @@ The architecture includes:
 * Amazon DynamoDB: For locking Terraform state.
 * IAM Roles: To ensure secure access to services.
 * Auto Scaling Group: To ensure the app scales based on demand.
-
