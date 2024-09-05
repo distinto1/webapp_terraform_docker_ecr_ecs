@@ -59,31 +59,56 @@ The architecture includes:
 
 1. Install and Setup Terraform:
 
-    Install Terraform on your local machine and verify the installation.
+    * Install Terraform on your local machine and verify the installation.
 
 1. Version Control:
 
-    Create a GitHub repository and set up Git on your computer.
-    Generate SSH key pairs for secure access to GitHub.
+    * Create a GitHub repository and set up Git on your computer.
+    * Generate SSH key pairs for secure access into GitHub. This will be done by uploading the generated public key pair into Github which will enable you to clone your Github repository.
 
 1. Development Environment:
 
-    Install Visual Studio Code and add Terraform and Docker extensions to improve efficiency.
+    * Install Visual Studio Code and add Terraform and Docker extensions to improve efficiency.
 
 1. AWS Setup:
 
     * Install and configure the AWS CLI.
+        ![](./images/1-01.PNG)
+
     * Create an IAM user and generate access keys.
     * Run aws configure to set up your credentials locally.
+    ![](./images/2-0-use.PNG)
 1. S3 and DynamoDB for Terraform State:
 
     * Create an S3 bucket for storing the Terraform state files.
+    ![](./images/3-creat%20s3.PNG)
+    ![](./images/4-give%20s3%20name.PNG)
+    ![](./images/5-enable%20bucket%20versioning.PNG)
+
     * Create a DynamoDB table to lock Terraform state and prevent concurrent operations.
+    ![](./images/6-create%20dynamoDB%20tB.PNG)
+    ![](./images/7-dynamoDB%20create%20TABLE.PNG)
+    ![](./images/8-dynamoDB%20TB%20created.PNG)
 
 1. Terraform Configuration:
 
-    * Clone the GitHub repository and define environment variables for the project.
-    * Initialize Terraform using terraform init after configuring the provider.
+    * Create a GitHub repository to store terraform codes. Then clone the repository to your computer.
+    ![](./images/9-create%20repo.PNG)
+    ![](./images/10-repoCREATED.PNG)
+    ![](./images/11-clone-1.PNG)
+    ![](./images/12-cloned%20-2.PNG)
+    * Define and create environment variables (region,project-name,environment) for the project.
+    ![](./images/13-variables.PNG)
+    * Use terraform.tfvars to assign values to the variables you have created.
+    ![](./images/15-terraformvars.PNG)
+    * Configure AWS provider to establish secure connection between terraform and AWS.
+    ![](./images/14-providers.PNG)
+    * Configure the backend to store the terraform state and lock with DynamoDB
+    ![](./images/15-backend.PNG)
+    * Initialize Terraform with AWS environment using terraform init after all configurations.
+    ![](./images/16-%20there%20was%20a%20space%20in%20my%20bucket%20name%20thus%20the%20error.PNG)
+
+    ![](./images/17-terraform%20init.PNG)
 1. VPC and Networking:
 
     * Create a 3-tier VPC with public and private subnets across two availability zones.
