@@ -112,30 +112,45 @@ The architecture includes:
 1. VPC and Networking:
 
     * Create a 3-tier VPC with public and private subnets across two availability zones.
+    ![](./images/18-create%20vpc.PNG)
+    ![](./images/20-vpc%20created.PNG)
     * Set up NAT Gateways and Route Tables to manage traffic between public and private subnets.
+    ![](./images/21-nat%20gateway%20created.PNG)
 
 1. Security Groups:
 
     * Create security groups for the Application Load Balancer, Bastion host, app servers, and databases.
+    ![](./images/22-security%20grps%20created.PNG)
 
 1. Database Layer:
 
     * Deploy an RDS instance from a snapshot to serve as the application's database.
+    ![](./images/23-rds%20created.PNG)
+    ![](./images/24-rds%20created%20confirmed.PNG)
 
 1. Load Balancer and Auto Scaling:
 
     * Set up an Application Load Balancer to distribute traffic.
+    ![](./images/27-alb%20created[%20noticed%20the%20name%20neede%20to%20be%20changed%20cos%20of%20an%20underscore].PNG)
+    ![](./images/28-alb%20created%20confirmed.PNG)
+
     * Create an Auto Scaling Group connected to ECS to manage container scaling.
+    ![](./images/35%20asg.PNG)
 
 1. ECS and ECR:
 
     * Push your Docker images to Amazon ECR.
     * Define an ECS task and service using Terraform, and link them to the Auto Scaling Group.
+    ![](./images/31-ecs%20role%20created.PNG)
+    ![](./images/32-ecs%20role%20created%20comfirmed.PNG)
+    ![](./images/33-ecs%20role%20created%20comfirmed-1.PNG)
 
 1. DNS and SSL:
 
     * Configure Route 53 for DNS routing to your application.
     * Use AWS Certificate Manager (ACM) to manage SSL certificates for secure connections.
+    ![](./images/25-ssl%20certificates%20created.PNG)
+    ![](./images/26-ssl_certificates_created_comfirmed.PNG)
 
 1. Deployment:
 
