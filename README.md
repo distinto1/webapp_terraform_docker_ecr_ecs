@@ -27,12 +27,13 @@ Before you start, make sure you have the following tools installed:
 * AWS CLI : configured with appropriate IAM user credentials.
 * VS Code: With extensions for Terraform and Docker
 * SSH Key Pairs: For secure connections.
+* RDS snapshot
+* Environment file
 
 You will also need:
 
 * An AWS account
 * GitHub account for version control
-
 
 ## Architecture Diagram
 
@@ -137,10 +138,15 @@ The architecture includes:
     * Create an Auto Scaling Group connected to ECS to manage container scaling.
     ![](./images/35%20asg.PNG)
 
+1. S3 Bucket:
+    * Upload environment file into terraform.
+    * add environment file to .gitignore file because it contains senstivie data that must not be exposed.
+    * Create an s3 bucket and upload the envirnoment file into the s3 bucket.
+
 1. ECS and ECR:
 
-    * Push your Docker images to Amazon ECR.
-    * Define an ECS task and service using Terraform, and link them to the Auto Scaling Group.
+    * Retrive the URI of Docker image in Amazon ECR.
+    * Create an ECS task execution role and ECS service using Terraform, and link them to the Auto Scaling Group.
     ![](./images/31-ecs%20role%20created.PNG)
     ![](./images/32-ecs%20role%20created%20comfirmed.PNG)
     ![](./images/33-ecs%20role%20created%20comfirmed-1.PNG)
@@ -148,6 +154,7 @@ The architecture includes:
 1. DNS and SSL:
 
     * Configure Route 53 for DNS routing to your application.
+    ![](./images/r53.PNG)
     * Use AWS Certificate Manager (ACM) to manage SSL certificates for secure connections.
     ![](./images/25-ssl%20certificates%20created.PNG)
     ![](./images/26-ssl_certificates_created_comfirmed.PNG)
@@ -156,3 +163,4 @@ The architecture includes:
 
     * Run terraform apply to deploy the infrastructure and application.
     * Access your application through the domain printed by Terraform.
+    ![](./images/done%20---Finally.PNG)
