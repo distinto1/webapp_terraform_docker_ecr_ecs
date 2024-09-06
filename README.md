@@ -22,7 +22,7 @@ This project is ideal for deploying a web application that requires:
 Before you start, make sure you have the following tools installed:
 
 * Terraform: Installed and configured.
-* Docker: Installed for container creation.
+* Docker Image: Application Image stored in Amazon ECR.
 * Git: Installed and connected to your GitHub account.
 * AWS CLI : configured with appropriate IAM user credentials.
 * VS Code: With extensions for Terraform and Docker
