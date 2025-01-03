@@ -16,7 +16,7 @@ resource "aws_appautoscaling_policy" "ecs_policy" {
   resource_id        = "service/${var.project_name}-${var.environment}-ecs_cluster/${var.project_name}-${var.environment}-ecs_service"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
-  
+
   target_tracking_scaling_policy_configuration {
 
     predefined_metric_specification {

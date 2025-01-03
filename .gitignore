@@ -36,3 +36,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 rentzone.env
+
+# Ignore backend config file
+*.hcl

@@ -1,4 +1,4 @@
-# create security group for the application load balancer
+# create security group for the application load balancer 
 resource "aws_security_group" "eligant_alb_security_group" {
   name        = "${var.project_name}-${var.environment}-eligant_alb_sg"
   description = "enable http/https access on port 80/443"
@@ -32,7 +32,7 @@ resource "aws_security_group" "eligant_alb_security_group" {
   }
 }
 
-# create security group for the bastion host aka jump box
+# create a separate security group for ssh access
 resource "aws_security_group" "bastion_security_group" {
   name        = "${var.project_name}-${var.environment}-baston_sg"
   description = "enable ssh access on port 22"

@@ -18,13 +18,10 @@ resource "aws_internet_gateway" "eligant_igw" {
   }
 }
 
-# use data source to get all avalablility zones in region
-data "aws_availability_zones" "available_zones" {}
-
 # create public subnet az1
 resource "aws_subnet" "pub_eligant_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.pub_eligant_subnet_az1_cidr
+  cidr_block              = local.public_subnets[0]
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   map_public_ip_on_launch = true
 
@@ -36,7 +33,7 @@ resource "aws_subnet" "pub_eligant_subnet_az1" {
 # create public subnet az2
 resource "aws_subnet" "pub_eligant_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.pub_eligant_subnet_az2_cidr
+  cidr_block              = local.public_subnets[1]
   availability_zone       = data.aws_availability_zones.available_zones.names[1]
   map_public_ip_on_launch = true
 
@@ -55,7 +52,7 @@ resource "aws_route_table" "eligant_public-RT" {
   }
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-eligant_public-RT"
+    Name = "${var.project_name}-${var.environment}-public-RT"
   }
 }
 
@@ -74,47 +71,47 @@ resource "aws_route_table_association" "public_subnet_2_rt_association" {
 # create private app subnet az1
 resource "aws_subnet" "private_eligantapp_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_eligantapp_subnet_az1_cidr
+  cidr_block              = local.private_subnets[0]
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-eligantapp_subnet_az1"
+    Name = "${var.project_name}-${var.environment}-private_app_subnet_az1"
   }
 }
 
 # create private app subnet az2
 resource "aws_subnet" "private_eligantapp_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_eligantapp_subnet_az2_cidr
+  cidr_block              = local.private_subnets[1]
   availability_zone       = data.aws_availability_zones.available_zones.names[1]
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-private_eligantapp_subnet_az2"
+    Name = "${var.project_name}-${var.environment}-private_app_subnet_az2"
   }
 }
 
 # create private data subnet az1
 resource "aws_subnet" "private_eligantdata_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_eligantdata_subnet_az1_cidr
+  cidr_block              = local.private_subnets[2]
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-private_eligantdata_subnet_az1"
+    Name = "${var.project_name}-${var.environment}-private_data_subnet_az1"
   }
 }
 
 # create private data subnet az2
 resource "aws_subnet" "private_eligantdata_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_eligantdata_subnet_az2_cidr
+  cidr_block              = local.private_subnets[3]
   availability_zone       = data.aws_availability_zones.available_zones.names[1]
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "${var.project_name}-${var.environment}-eligantdata_subnet_az2"
+    Name = "${var.project_name}-${var.environment}-private_data_subnet_az2"
   }
 }

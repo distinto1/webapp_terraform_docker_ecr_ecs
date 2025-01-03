@@ -20,36 +20,6 @@ variable "vpc_cidr" {
   type        = string
 }
 
-variable "pub_eligant_subnet_az1_cidr" {
-  description = "public eligant subnet az1 cidr block"
-  type        = string
-}
-
-variable "pub_eligant_subnet_az2_cidr" {
-  description = "public eligant subnet az2 cidr block"
-  type        = string
-}
-
-variable "private_eligantapp_subnet_az1_cidr" {
-  description = "private eligant App subnet az1 cidr block"
-  type        = string
-}
-
-variable "private_eligantapp_subnet_az2_cidr" {
-  description = "private eligant App subnet az2 cidr block"
-  type        = string
-}
-
-variable "private_eligantdata_subnet_az1_cidr" {
-  description = "private eligant Database subnet az1 cidr block"
-  type        = string
-}
-
-variable "private_eligantdata_subnet_az2_cidr" {
-  description = "private eligant Database subnet az2 cidr block"
-  type        = string
-}
-
 # Security groups variables
 variable "ssh_location" {
   description = "ip that can ssh into the server"
@@ -113,5 +83,5 @@ variable "container_image" {
 # route53 variables
 variable "record_name" {
   description = "sub domain name"
-  type = string
+  type        = string
 }
